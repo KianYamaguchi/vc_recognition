@@ -1,0 +1,111 @@
+# 音声認識アプリケーション
+
+このプロジェクトは、音声をリアルタイムで認識し、テキストとして表示するWebアプリケーションです。  
+バックエンドはFastAPIを使用し、フロントエンドはWebSocketを通じてバックエンドと通信します。
+
+---
+
+## 📂 プロジェクト構成
+
+```
+project4/
+├── api/                # バックエンド (FastAPI)
+│   ├── app.py          # WebSocketと音声認識の処理
+│   └── venv/           # 仮想環境
+├── frontend/           # フロントエンド
+│   ├── views/          # HTMLテンプレート
+│   │   └── index.ejs   # メインページ
+│   └── .gitignore      # Git無視ファイル
+└── readme              # このREADMEファイル
+```
+
+---
+
+## 🚀 使用技術
+
+### バックエンド
+- **Python 3.10+**
+- **FastAPI**: Webフレームワーク
+- **speech_recognition**: 音声認識ライブラリ
+- **PyAudio**: マイク入力用ライブラリ
+
+### フロントエンド
+- **HTML/CSS**: ユーザーインターフェース
+- **WebSocket**: リアルタイム通信
+
+---
+
+## 🔧 セットアップ手順
+
+### 1. 必要なライブラリのインストール
+#### バックエンド
+1. 仮想環境を作成:
+   ```bash
+   python -m venv venv
+   ```
+2. 仮想環境を有効化:
+   - Windows:
+     ```bash
+     .\venv\Scripts\activate
+     ```
+   - macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+3. 必要なライブラリをインストール:
+   ```bash
+   pip install fastapi uvicorn speechrecognition pyaudio
+   ```
+
+#### フロントエンド
+1. 必要なNode.jsパッケージをインストール:
+   ```bash
+   npm install
+   ```
+
+---
+
+### 2. サーバーの起動
+#### バックエンド
+以下のコマンドでFastAPIサーバーを起動:
+```bash
+uvicorn app:app --reload
+```
+
+#### フロントエンド
+フロントエンドのサーバーを起動:
+```bash
+npm start
+```
+
+---
+
+## 🌟 使用方法
+
+1. ブラウザで以下のURLにアクセス:
+   ```
+   http://127.0.0.1:8000
+   ```
+2. マイクに向かって話すと、音声がリアルタイムでテキストに変換されて表示されます。
+
+---
+
+## 🛠️ トラブルシューティング
+
+- **PyAudioのインストールエラー**:
+  WindowsではPyAudioのインストールに失敗する場合があります。その場合、以下の手順を試してください:
+  1. [PyAudioのホイールファイル](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio)をダウンロード。
+  2. ダウンロードしたファイルを使ってインストール:
+     ```bash
+     pip install <ダウンロードしたファイル名>
+     ```
+
+- **音声認識が動作しない**:
+  - マイクが正しく接続されているか確認してください。
+  - Google音声認識APIにアクセスできるインターネット接続が必要です。
+
+---
+
+## 📜 ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
